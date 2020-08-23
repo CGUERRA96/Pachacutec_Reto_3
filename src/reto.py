@@ -1,32 +1,36 @@
 try:
     # Reto 3 : nivel - (Medio-Avanzado)
-    cant_alumnos= int(input("Ingrese cantidad de alumnos: "))
-    cant_notas= int(input("Ingrese cantidad de notas: "))
+    cant_alumnos = int(input("Ingrese cantidad de alumnos: "))
+    cant_notas = int(input("Ingrese cantidad de notas: "))
     # Reto 2 : nivel - Medio
-    alumnos=[]
-    lista_notas=[]
+    alumnos = []
     for a in range(cant_alumnos):
-        nuevo_alumno=input('Ingrese nuevo alumno: ')
-        alumnos.append(nuevo_alumno)
-        print(f'######## Alumno: {alumnos[a]} ########')
+        nuevo_alumno = input('Ingrese nuevo alumno: ')
+        #alumnos.append(nuevo_alumno)
+        print(f'######## Alumno: {nuevo_alumno} ########')
         # Reto 1 : nivel - Basico
+        lista_notas = []
         for x in range(cant_notas):
             while True:
-                print(f'Ingrese la nota {x + 1}')
-                notas=int(input("Ingrese las notas:"))
+                notas = int(input(f"Ingrese la nota {x + 1}:"))
                 if  notas >= 0 and notas <= 20:
-                    print('Nota correcta')
                     lista_notas.append(notas)
                     break
                 else:
                     print('Ingresar una nota entre 00 al 20')
-                    notas=int(input("Ingrese la nota correcta: "))  
-        lista_notas.sort()
-        alumnos_tupla=tuple(alumnos)
-        print(f'######## Sus notas son: ########')
-        print(f'La mayor de {alumnos[a]} nota es: {lista_notas[-1]}')
-        print(f'La menor de {alumnos[a]} nota es: {lista_notas[0]}')
-        print(f'El promedio de {alumnos[a]} es: {sum(lista_notas)/len(lista_notas)}')
+        
+        alumnos.append({
+            'alumno': nuevo_alumno,
+            'notas': lista_notas
+        })
+    
+    for v in alumnos:
+        print("########################")
+        print(f"Alumno : {v['alumno']}")
+        print(f"Notas: {v['notas']}")
+        print(f"Nota minima: {min(v['notas'])}")
+        print(f"Nota maxima: {max(v['notas'])}")
+        print(f"Nota promedio: {sum(v['notas'])/len(v['notas'])}")
 
 except KeyboardInterrupt as t:
     print("\nSe cerro la aplicacion")
