@@ -31,7 +31,7 @@ try:
         print(f"Nota minima: {min(v['notas'])}")
         print(f"Nota maxima: {max(v['notas'])}")
         print(f"Nota promedio: {sum(v['notas'])/len(v['notas'])}")
-
+        print(alumnos)
 except KeyboardInterrupt as t:
     print("\nSe cerro la aplicacion")
 #conversion = dict.fromkeys(alumnos_tupla,lista_notas[x])
